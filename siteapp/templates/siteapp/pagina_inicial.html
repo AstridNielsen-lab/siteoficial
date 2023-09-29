@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like Look Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Use min-height para garantir que a margem seja respeitada */
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza verticalmente */
+            margin-top: 20px; /* Margem superior de 20 pixels */
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        input[type="text"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .github-button {
+            background-color: #333;
+        }
+
+        .github-button:hover {
+            background-color: #000;
+        }
+
+        #current-time {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #data-visualization {
+            margin-top: 20px;
+        }
+
+        /* Adicione um estilo para centralizar a caixa de entrada de informações */
+        #lawyer-search-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+        <h1>Like Look Solutions Pesquisas</h1>
+
+        <!-- Botão para seu perfil do GitHub -->
+        <a href="https://mpago.la/1CZo8cr" target="_blank">
+            <button class="github-button">Coffe R$ 9,99</button>
+        </a>
+
+        <!-- Caixa de texto para o título do filme -->
+        <input type="text" id="music-title" placeholder="Digite o título da música">
+        <!-- Botão para buscar por título de música no YouTube Music -->
+        <button onclick="searchMusicOnYouTube()">Buscar Música</button>
+
+        <!-- Caixa de texto para o endereço -->
+        <input type="text" id="address" placeholder="Digite o endereço">
+        <!-- Botão para buscar o endereço no Google Maps -->
+        <button onclick="searchAddressOnMaps()">Buscar Endereço</button>
+
+        <!-- Caixa de texto para o CNPJ -->
+        <input type="text" id="cnpj" placeholder="Digite o CNPJ">
+        <!-- Botão para buscar CNPJ no site CNPJ.biz -->
+        <button onclick="searchCnpjOnCnpjBiz()">Buscar CNPJ</button>
+
+        <!-- Caixa de texto para a consulta de processos -->
+        <input type="text" id="process-query" placeholder="Consultar processo por CPF, nome ou número">
+        <!-- Botão para consultar processos no JusBrasil -->
+        <button onclick="searchProcessOnJusBrasil()">Consultar Processo</button>
+
+        <!-- Caixa de texto para a busca de perfis no Facebook -->
+        <input type="text" id="facebook-profile-query" placeholder="Buscar perfil no Facebook">
+        <!-- Botão para buscar perfis no Facebook -->
+        <button onclick="searchProfileOnFacebook()">Buscar Perfil no Facebook</button>
+
+        <!-- Formulário para buscar advogados no Jusbrasil -->
+        <form id="lawyer-search-form">
+            <input type="text" id="lawyer-state" placeholder="Estado (ex: SP)">
+            <button onclick="searchLawyersOnJusbrasil()">Buscar Advogados</button>
+        </form>
+
+       <!-- Botão para seu perfil do GitHub -->
+        <a href="https://github.com/AstridNielsen-lab" target="_blank">
+            <button class="github-button">Visite  GitHub</button>
+        </a>
+
+        <div id="current-time"></div>
+
+        <div id="data-visualization">
+            <!-- O gráfico Matplotlib será renderizado aqui -->
+        </div>
+    </div>
+
+    <script>
+        // Função para buscar músicas no YouTube Music com base no título
+function searchMusicOnYouTube() {
+    const musicTitle = document.getElementById('music-title').value;
+
+    // Construa a URL de busca no YouTube Music
+    const searchUrl = `https://music.youtube.com/search?q=${musicTitle}`;
+
+    // Abra a página de resultados de busca em uma nova guia/janela
+    window.open(searchUrl, '_blank');
+}
+
+        // Função para buscar o endereço no Google Maps
+        function searchAddressOnMaps() {
+            const address = encodeURIComponent(document.getElementById('address').value);
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
+
+            // Redireciona o usuário para a página de resultados no Google Maps
+            window.open(mapsUrl, '_blank');
+        }
+
+        // Função para buscar CNPJ no site CNPJ.biz
+        function searchCnpjOnCnpjBiz() {
+            const cnpj = document.getElementById('cnpj').value;
+
+            // Formate o CNPJ removendo caracteres não numéricos
+            const formattedCnpj = cnpj.replace(/[^\d]/g, '');
+
+            // Construa a URL de busca de CNPJ no site CNPJ.biz
+            const cnpjBizUrl = `https://cnpj.biz/procura/${formattedCnpj}`;
+
+            // Abra a página de resultados de busca de CNPJ no CNPJ.biz em uma nova guia/janela
+            window.open(cnpjBizUrl, '_blank');
+        }
+
+        // Função para consultar processos no JusBrasil
+        function searchProcessOnJusBrasil() {
+            const processQuery = encodeURIComponent(document.getElementById('process-query').value);
+
+            // Construa a URL de consulta de processos no JusBrasil
+            const jusBrasilUrl = `https://www.jusbrasil.com.br/consulta-processual/busca?q=${processQuery}&query_id=9d1f3d69-0540-4a8a-8796-61bc1d0131a8`;
+
+            // Abra a página de resultados de consulta de processos no JusBrasil em uma nova guia/janela
+            window.open(jusBrasilUrl, '_blank');
+        }
+
+        // Função para buscar perfil no Facebook
+        function searchProfileOnFacebook() {
+            const profileQuery = encodeURIComponent(document.getElementById('facebook-profile-query').value);
+
+            // Construa a URL de busca de perfil no Facebook
+            const facebookUrl = `https://www.facebook.com/search/people/?q=${profileQuery}`;
+
+            // Abra a página de resultados de busca de perfil no Facebook em uma nova guia/janela
+            window.open(facebookUrl, '_blank');
+        }
+
+        // Função para buscar advogados no Jusbrasil por estado
+        function searchLawyersOnJusbrasil() {
+            const state = encodeURIComponent(document.getElementById('lawyer-state').value);
+
+            // Verifique se o campo do estado está preenchido
+            if (!state) {
+                alert('Por favor, insira um estado válido.');
+                return;
+            }
+
+            // Construa a URL de busca de advogados no Jusbrasil com base no estado
+            const jusbrasilUrl = `https://www.jusbrasil.com.br/advogados/${state}/`;
+
+            // Abra a página de resultados de busca de advogados por estado em uma nova guia/janela
+            window.open(jusbrasilUrl, '_blank');
+        }
+    </script>
+
+    <script>
+        // Função para buscar a hora de São Paulo da API WorldTimeAPI
+        function fetchSaoPauloTime() {
+            // ... (seu código para buscar a hora) ...
+        }
+
+        // Chame a função para buscar a hora quando a página carregar
+        window.onload = function () {
+            fetchSaoPauloTime();
+
+            // Configura um intervalo de atualização a cada 5 segundos (5000 milissegundos)
+            setInterval(fetchSaoPauloTime, 5000);
+        };
+    </script>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        // Seu código Python e JavaScript para criar a visualização aqui
+        // Certifique-se de incluir Matplotlib ou a biblioteca de visualização desejada
+    </script>
+</body>
+</html>

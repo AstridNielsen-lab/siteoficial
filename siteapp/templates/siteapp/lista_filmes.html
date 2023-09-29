@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Filmes</title>
+</head>
+<body>
+    <h1>Lista de Filmes</h1>
+
+    <!-- Adicione a lista de filmes aqui -->
+    <div style="text-align: center;">
+        <span style="font-size: x-large;"><b>Filmes</b></span><br/>
+    </div>
+    <b>Números &amp; Símbolos</b><br/>
+    #Alive (Dublado) - 2020 - 1080p - <a href="/alive-dublado-2020-1080p_34bae61d1.html" target="_blank"><b>Assistir</b></a><br/>
+    #ComVocê: Volume: 1 (Dublado) - 2022 - 1080p - <a href="/comvoce-volume-1-dublado-2022-1080p_8042e6c01.html" target="_blank"><b>Assistir</b></a><br/>
+    #Horror (Dublado) - 2015 - 1080p - <a href="/horror-dublado-2015-1080p_fedce1243.html" target="_blank"><b>Assistir</b></a><br/>
+    #Natal (Dublado) - 2022 - 1080p - <a href="/natal-dublado-2022-1080p_dabfe3667.html" target="_blank"><b>Assistir</b></a><br/>
+    #Nudes (Nacional) - 2018 - 1080p - <a href="/nudes-nacional-2018-1080p_68d9316fb.html" target="_blank"><b>Assistir</b></a><br/>
+    #PartiuFama: Cancelado no Amor (Nacional) - 2022 - 720p - <a href="/partiufama-cancelado-no-amor-nacional-2022-720p_2e942bde3.html" target="_blank"><b>Assistir</b></a><br/>
+
+    <!-- Outro conteúdo da sua página aqui -->
+
+    <ul>
+        {% for filme in filmes %}
+            <li>{{ filme.titulo }} ({{ filme.ano_lancamento }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
