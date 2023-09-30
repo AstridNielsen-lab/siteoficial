@@ -14,12 +14,3 @@ Like Look Solutions Pesquisas
 - 🏆 [**Radio**](https://www.radiotatuapefm.com.br)
 
 
-Hello World 🖖, I'm Astrid Nielsen❣️
-
-- 🔭 I’m currently working on Python projects with my students
-- 👀 I’m interested in Python | HTML | CSS | JS 
-- 🌱 I’m currently learning Python
-- 👯 I’m looking to collaborate with my knoledges
-- 🎮 I love playing videogames, reading and watching TV series
-- 📫 How to reach me AstridNielsen-lab@proton.me
-- ⚡ Fun fact: Curious Student of Physics and Quantum Computing ⚡
