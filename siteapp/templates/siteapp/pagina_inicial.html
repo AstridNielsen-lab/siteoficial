@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #000000;
             margin: 0;
             padding: 0;
             display: flex;
@@ -32,13 +32,13 @@
 
         h1 {
             font-size: 24px;
-            color: #007bff;
+            color: #000000;
         }
 
         input[type="text"],
         button {
             width: 100%;
-            padding: 10px;
+            padding: 15px; /* Aumente o tamanho do padding para aumentar o tamanho dos botões */
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -46,7 +46,7 @@
         }
 
         button {
-            background-color: #007bff;
+            background-color: #000000;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -61,12 +61,23 @@
             text-decoration: none;
         }
 
-        .github-button {
-            background-color: #333;
+        /* Estilo para os botões */
+        .github-button,
+        .other-button {
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            padding: 15px; /* Aumente o tamanho do padding para aumentar o tamanho dos botões */
+            margin: 10px 0;
+            font-size: 16px;
         }
 
-        .github-button:hover {
-            background-color: #000;
+        .github-button:hover,
+        .other-button:hover {
+            background-color: #0056b3;
         }
 
         #current-time {
@@ -88,48 +99,165 @@
     </style>
 </head>
 <body>
-   <div class="container">
+    <div class="container">
         <h1>Like Look Solutions Pesquisas</h1>
 
         <!-- Botão para seu perfil do GitHub -->
         <a href="https://mpago.la/1CZo8cr" target="_blank">
-            <button class="github-button">Coffe R$ 9,99</button>
+            <button class="other-button">Coffe R$ 9,99</button>
         </a>
 
-        <!-- Caixa de texto para o título do filme -->
-        <input type="text" id="music-title" placeholder="Digite o título da música">
-        <!-- Botão para buscar por título de música no YouTube Music -->
-        <button onclick="searchMusicOnYouTube()">Buscar Música</button>
 
-        <!-- Caixa de texto para o endereço -->
+        <!-- Caixa de texto para o nome do medicamento -->
+<input type="text" id="medicine-name" placeholder="Digite o nome do medicamento">
+
+<!-- Botão para iniciar a busca -->
+<button onclick="searchMedicine()" class="other-button">Buscar Medicamento</button>
+
+<!-- Div para exibir os resultados -->
+<div id="medicine-results"></div>
+
+
+<!-- Adicione um novo campo de entrada de texto para a localização -->
+<input type="text" id="hospital-location" placeholder="Digite a localização ou nome da região">
+
+<!-- Botão para buscar hospitais ou postos de saúde -->
+<button onclick="searchHospitals()" class="other-button">Buscar Hospitais</button>
+
+
+
+     <!-- Caixa de texto para o endereço -->
         <input type="text" id="address" placeholder="Digite o endereço">
         <!-- Botão para buscar o endereço no Google Maps -->
-        <button onclick="searchAddressOnMaps()">Buscar Endereço</button>
+        <button onclick="searchAddressOnMaps()" class="other-button">Buscar Endereço</button>
+
+
+
+
+        <!-- Caixa de texto para o URL do vídeo do YouTube -->
+<input type="text" id="youtube-url" placeholder="Cole o URL do vídeo do YouTube">
+<!-- Botão para baixar MP3 a partir do URL do YouTube -->
+<button onclick="downloadMp3FromYoutube()" class="other-button">Baixar MP3</button>
+
+
+
+
+<!-- Adicione um campo de entrada de texto para o URL do vídeo do YouTube -->
+<input type="text" id="youtube-mp4-url" placeholder="Cole o URL do vídeo do YouTube">
+
+<!-- Botão para converter para MP4 -->
+<button onclick="convertToMp4()" class="other-button">Converter para MP4</button>
+
+
+<!-- Adicione um campo de entrada de texto para o URL do vídeo do Instagram -->
+<input type="text" id="instagram-video-url" placeholder="Cole o URL do vídeo do Instagram">
+
+<!-- Botão para baixar vídeo do Instagram -->
+<button onclick="downloadInstagramVideo()" class="other-button">Baixar Vídeo do Instagram</button>
+
+
+<!-- Adicione um campo de entrada de texto para o URL do vídeo do Facebook -->
+<input type="text" id="facebook-video-url" placeholder="Cole o URL do vídeo do Facebook">
+
+<!-- Botão para baixar vídeo do Facebook -->
+<button onclick="downloadFacebookVideo()" class="other-button">Baixar Vídeo do Facebook</button>
+
+
+
+
+
+
+
+
+
+
 
         <!-- Caixa de texto para o CNPJ -->
         <input type="text" id="cnpj" placeholder="Digite o CNPJ">
         <!-- Botão para buscar CNPJ no site CNPJ.biz -->
-        <button onclick="searchCnpjOnCnpjBiz()">Buscar CNPJ</button>
+        <button onclick="searchCnpjOnCnpjBiz()" class="other-button">Buscar CNPJ</button>
+
+        <!-- Caixa de texto para o nome da empresa -->
+<input type="text" id="company-name" placeholder="Digite o nome da empresa">
+<!-- Botão para buscar CNPJ por nome -->
+<button onclick="searchCnpjByName()" class="other-button">Buscar CNPJ por Nome</button>
+
+
+
+
+<!-- Caixa de texto para o nome da empresa e estado -->
+<input type="text" id="company-name-state" placeholder="Digite o nome da empresa / estado">
+<!-- Botão para buscar CNPJ por nome e estado -->
+<button onclick="searchCnpjByNameAndState()" class="other-button">Buscar CNPJ por Nome e Estado</button>
+
+
+
+
+
 
         <!-- Caixa de texto para a consulta de processos -->
         <input type="text" id="process-query" placeholder="Consultar processo por CPF, nome ou número">
         <!-- Botão para consultar processos no JusBrasil -->
-        <button onclick="searchProcessOnJusBrasil()">Consultar Processo</button>
+        <button onclick="searchProcessOnJusBrasil()" class="other-button">Consultar Processo</button>
 
         <!-- Caixa de texto para a busca de perfis no Facebook -->
         <input type="text" id="facebook-profile-query" placeholder="Buscar perfil no Facebook">
         <!-- Botão para buscar perfis no Facebook -->
-        <button onclick="searchProfileOnFacebook()">Buscar Perfil no Facebook</button>
+        <button onclick="searchProfileOnFacebook()" class="other-button">Buscar Perfil no Facebook</button>
 
-        <!-- Formulário para buscar advogados no Jusbrasil -->
-        <form id="lawyer-search-form">
-            <input type="text" id="lawyer-state" placeholder="Estado (ex: SP)">
-            <button onclick="searchLawyersOnJusbrasil()">Buscar Advogados</button>
-        </form>
 
-       <!-- Botão para seu perfil do GitHub -->
+       <!-- Caixa de texto para o perfil do Instagram -->
+       <input type="text" id="instagram-profile" placeholder="Digite o nome de usuário do Instagram">
+       <!-- Botão para buscar o perfil no Instagram -->
+       <button onclick="searchInstagramProfile()" class="other-button">Buscar Perfil no Instagram</button>
+
+       <!-- Caixa de texto para o nome no Twitter -->
+<input type="text" id="twitter-name" placeholder="Digite o nome no Twitter">
+<!-- Botão para buscar pessoas no Twitter -->
+<button onclick="searchTwitterPeople()" class="other-button">Buscar Pessoas no Twitter</button>
+
+
+
+ <div class="container">
+        <!-- Caixa de texto para o estado -->
+        <input type="text" id="lawyer-state" placeholder="Estado (ex: SP)">
+        <!-- Botão para buscar advogados -->
+        <button onclick="searchLawyersOnJusbrasil()" class="other-button">Buscar Advogado por Estado</button>
+
+        <!-- Div para exibir os resultados -->
+        <div id="lawyer-results"></div>
+
+
+
+
+
+
+        <!-- Caixa de texto para o nome do advogado -->
+<input type="text" id="lawyer-name" placeholder="Digite o nome do advogado">
+
+<!-- Botão para iniciar a busca por nome de advogado -->
+<button onclick="searchLawyerByName()" class="other-button">Buscar Advogado por Nome</button>
+
+<!-- Div para exibir os resultados -->
+<div id="lawyer-results"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Botão para seu perfil do GitHub -->
         <a href="https://github.com/AstridNielsen-lab" target="_blank">
-            <button class="github-button">Visite  GitHub</button>
+            <button class="other-button">Visite  GitHub</button>
         </a>
 
         <div id="current-time"></div>
@@ -140,16 +268,29 @@
     </div>
 
     <script>
-        // Função para buscar músicas no YouTube Music com base no título
-function searchMusicOnYouTube() {
-    const musicTitle = document.getElementById('music-title').value;
 
-    // Construa a URL de busca no YouTube Music
-    const searchUrl = `https://music.youtube.com/search?q=${musicTitle}`;
+    function searchMedicine() {
+    // Obtenha o nome do medicamento digitado pelo usuário
+    const medicineName = document.getElementById('medicine-name').value;
 
-    // Abra a página de resultados de busca em uma nova guia/janela
-    window.open(searchUrl, '_blank');
+    // Construa a URL de busca no site Consulta Remédios
+    const consultaRemediosUrl = `https://consultaremedios.com.br/${encodeURIComponent(medicineName)}/pa`;
+
+    // Abra a página de resultados da busca em uma nova guia/janela
+    window.open(consultaRemediosUrl, '_blank');
+
+    // Você também pode exibir os resultados em um elemento na página, se desejar
+    // Exemplo: document.getElementById('medicine-results').innerHTML = `<a href="${consultaRemediosUrl}" target="_blank">Clique aqui para ver os melhores preços e locais de compra do ${medicineName}</a>`;
 }
+
+
+
+
+
+
+
+
+
 
         // Função para buscar o endereço no Google Maps
         function searchAddressOnMaps() {
@@ -214,25 +355,213 @@ function searchMusicOnYouTube() {
         }
     </script>
 
-    <script>
-        // Função para buscar a hora de São Paulo da API WorldTimeAPI
-        function fetchSaoPauloTime() {
-            // ... (seu código para buscar a hora) ...
+     <script>
+    // Função para buscar perfil no Instagram usando o Google
+    function searchInstagramProfile() {
+        const username = document.getElementById('instagram-profile').value;
+
+        // Verifique se o campo de nome de usuário está preenchido
+        if (!username) {
+            alert('Por favor, insira um nome de usuário do Instagram válido.');
+            return;
         }
 
-        // Chame a função para buscar a hora quando a página carregar
-        window.onload = function () {
-            fetchSaoPauloTime();
+        // Construa a consulta de pesquisa para o Google
+        const googleQuery = `site:instagram.com ${username}`;
 
-            // Configura um intervalo de atualização a cada 5 segundos (5000 milissegundos)
-            setInterval(fetchSaoPauloTime, 5000);
-        };
+        // Codifique a consulta de pesquisa para URL
+        const encodedQuery = encodeURIComponent(googleQuery);
+
+        // Construa a URL de pesquisa no Google
+        const googleUrl = `https://www.google.com/search?q=${encodedQuery}`;
+
+        // Abra a página de resultados da pesquisa do Google em uma nova guia/janela
+        window.open(googleUrl, '_blank');
+    }
+</script>
+
+
+<script>
+    // Função para buscar pessoas no Twitter
+    function searchTwitterPeople() {
+        const name = document.getElementById('twitter-name').value;
+
+        // Verifique se o campo de nome no Twitter está preenchido
+        if (!name) {
+            alert('Por favor, insira um nome no Twitter válido.');
+            return;
+        }
+
+        // Construa a URL de busca de pessoas no Twitter
+        const twitterUrl = `https://twitter.com/search?q=${name}&src=typed_query&f=user`;
+
+        // Abra a página de resultados da busca de pessoas no Twitter em uma nova guia/janela
+        window.open(twitterUrl, '_blank');
+    }
+</script>
+
+
+
+<script>
+    // Função para buscar CNPJ por nome
+    function searchCnpjByName() {
+        const companyName = document.getElementById('company-name').value;
+
+        // Verifique se o campo de nome da empresa está preenchido
+        if (!companyName) {
+            alert('Por favor, insira o nome da empresa.');
+            return;
+        }
+
+        // Formate o nome da empresa para a URL
+        const formattedCompanyName = encodeURIComponent(companyName);
+
+        // Construa a URL de busca de CNPJ por nome
+        const cnpjUrl = `https://cnpj.biz/procura/${formattedCompanyName}`;
+
+        // Abra a página de resultados da busca de CNPJ por nome em uma nova guia/janela
+        window.open(cnpjUrl, '_blank');
+    }
+</script>
+
+
+
+<script>
+    // Função para buscar CNPJ por nome e estado
+    function searchCnpjByNameAndState() {
+        const companyNameState = document.getElementById('company-name-state').value;
+
+        // Construa a URL de busca de CNPJ por nome e estado
+        const cnpjUrl = `https://cnpj.biz/procura/${companyNameState}`;
+
+        // Abra a página de resultados da busca de CNPJ por nome e estado em uma nova guia/janela
+        window.open(cnpjUrl, '_blank');
+    }
+</script>
+
+
+
+
+
+
+<script>
+    // Função para baixar MP3 a partir do URL do YouTube
+    function downloadMp3FromYoutube() {
+        const youtubeUrl = document.getElementById('youtube-url').value;
+
+        // Encode o URL do YouTube para que possa ser usado como parâmetro na URL do serviço de download
+        const encodedUrl = encodeURIComponent(youtubeUrl);
+
+        // Construa a URL para baixar o MP3 do YouTube
+        const mp3DownloadUrl = `https://snapinsta.io/pt/convert-youtube-mp3?q=${encodedUrl}`;
+
+        // Abra a página de download do MP3 em uma nova guia/janela
+        window.open(mp3DownloadUrl, '_blank');
+    }
+</script>
+
+
+
+<script>
+    function searchHospitals() {
+        // Obtenha a localização ou nome da região digitado pelo usuário
+        const location = encodeURIComponent(document.getElementById('hospital-location').value);
+
+        // Construa a URL de busca no Google Maps
+        const googleMapsUrl = `https://www.google.com/maps/search/hospital+${location}`;
+
+        // Abra a página de resultados da busca no Google Maps em uma nova guia/janela
+        window.open(googleMapsUrl, '_blank');
+    }
+</script>
+
+
+
+<script>
+    function convertToMp4() {
+        // Obtenha o URL do vídeo do YouTube inserido pelo usuário
+        const youtubeUrl = document.getElementById('youtube-mp4-url').value;
+
+        // Encode o URL do vídeo como parâmetro na URL do serviço de conversão
+        const encodedUrl = encodeURIComponent(youtubeUrl);
+
+        // Construa a URL para a conversão para MP4
+        const mp4ConversionUrl = `https://snapinsta.io/pt7/convert-youtube-mp4?q=${encodedUrl}`;
+
+        // Abra a página de conversão para MP4 em uma nova guia/janela
+        window.open(mp4ConversionUrl, '_blank');
+    }
+</script>
+
+
+
+
+
+
+<script>
+    function downloadInstagramVideo() {
+        // Obtenha o URL do vídeo do Instagram inserido pelo usuário
+        const instagramUrl = document.getElementById('instagram-video-url').value;
+
+        // Encode o URL do vídeo como parâmetro na URL do serviço de download do Instagram
+        const encodedUrl = encodeURIComponent(instagramUrl);
+
+        // Construa a URL para o download do vídeo do Instagram
+        const instagramDownloadUrl = `https://snapinsta.io/pt1/instagram-downloader?q=${encodedUrl}`;
+
+        // Abra a página de download do vídeo do Instagram em uma nova guia/janela
+        window.open(instagramDownloadUrl, '_blank');
+    }
+</script>
+
+
+
+<script>
+    function downloadFacebookVideo() {
+        // Obtenha o URL do vídeo do Facebook inserido pelo usuário
+        const facebookUrl = document.getElementById('facebook-video-url').value;
+
+        // Construa a URL do site de download com o URL do vídeo como parâmetro
+        const downloadUrl = `https://pocbi.com/facebook/#url=${facebookUrl}`;
+
+        // Abra a página de download no navegador
+        const newTab = window.open(downloadUrl, '_blank');
+
+        // Verifique se a guia foi aberta corretamente e inicie o download automaticamente
+        if (newTab) {
+            newTab.opener = null;
+            newTab.location.href = downloadUrl;
+        }
+    }
+</script>
+
+
+
+ <script>
+        // Função para buscar advogados no Jusbrasil por estado
+        function searchLawyersOnJusbrasil() {
+            const state = document.getElementById('lawyer-state').value;
+
+            // Verifique se o campo do estado está preenchido
+            if (!state) {
+                alert('Por favor, insira um estado válido.');
+                return;
+            }
+
+            // Construa a URL de busca de advogados no Jusbrasil com base no estado
+            const jusbrasilUrl = `https://www.jusbrasil.com.br/advogados/${encodeURIComponent(state)}/`;
+
+            // Abra a página de resultados de busca de advogados por estado em uma nova guia/janela
+            window.open(jusbrasilUrl, '_blank');
+
+            // Você também pode exibir os resultados em um elemento na página, se desejar
+            // Exemplo: document.getElementById('lawyer-results').innerHTML = `<a href="${jusbrasilUrl}" target="_blank">Clique aqui para ver os resultados da busca de advogados em ${state}</a>`;
+        }
     </script>
 
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script>
-        // Seu código Python e JavaScript para criar a visualização aqui
-        // Certifique-se de incluir Matplotlib ou a biblioteca de visualização desejada
-    </script>
+
+
+
+
 </body>
 </html>
