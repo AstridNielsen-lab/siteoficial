@@ -8,13 +8,7 @@
     <p>Explore meu portfólio e descubra o poder da programação em ação.</p>
 </div>
 
-   <!-- Logo da Like Look Solutions -->
-    <a href="http://juliocamposmachado.pythonanywhere.com" target="_blank">
-        <img src="https://static.wixstatic.com/media/ef3e67_051e5ffb7c6d471fb4d8a71b831a7d19~mv2.png/v1/fill/w_387,h_387,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo%20like%20look%20solutions%20trasparent.png" alt="Logotipo da Like Look Solutions" style="max-width: 100%;">
-    </a>
-
-
-
+ http://juliocamposmachado.pythonanywhere.com
 
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=800&lines=%F0%9F%91%8B+Hi%2C+I%E2%80%99m+%40AstridNielsen-lab;%F0%9F%91%80+I%E2%80%99m+interested+in+...+Python;%F0%9F%8C%B1+I%E2%80%99m+currently+learning+...+Python;%F0%9F%92%9E%EF%B8%8F+I%E2%80%99m+looking+to+collaborate+on+...+https%3A%2F%2Fdiscord.gg%2FQ87eT73pPX;%F0%9F%93%AB+How+to+reach+me+...+AstridNielsen-lab%40proton.me)](https://git.io/typing-svg)-  
