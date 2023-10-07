@@ -8,7 +8,10 @@
     <p>Explore meu portfólio e descubra o poder da programação em ação.</p>
 </div>
 
-
+   <!-- Logo da Like Look Solutions -->
+    <a href="http://juliocamposmachado.pythonanywhere.com" target="_blank">
+        <img src="https://static.wixstatic.com/media/ef3e67_051e5ffb7c6d471fb4d8a71b831a7d19~mv2.png/v1/fill/w_387,h_387,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo%20like%20look%20solutions%20trasparent.png" alt="Logotipo da Like Look Solutions" style="max-width: 100%;">
+    </a>
 
 
 
