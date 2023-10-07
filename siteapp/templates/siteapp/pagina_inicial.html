@@ -1,359 +1,953 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadados -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título -->
     <title>Like Look Solutions</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Use min-height para garantir que a margem seja respeitada */
-        }
+    <!-- Ícone da página -->
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/188/188802.png">
+    <!-- Descrição da página -->
+    <meta name="description" content="Search Engine in Python - Like Look Solutions - Conheça nossa Comunidade e comece a estudar agora mesmo">
+    <!-- Autor da página -->
+    <meta name="Julio Campos Machado" content="https://www.radiotatuapefm.com.br">
+     <!-- Inclua a biblioteca Speedtest.js -->
+  <script src="https://cdn.jsdelivr.net/npm/speedtest-net"></script>
 
+    <!-- Estilos CSS inline -->
+    <style>
+
+        /* Estilos para o corpo da página */
+
+       body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://cdn.discordapp.com/attachments/1041674542873055272/1159200337199104031/fundo_site_python_3.gif?ex=651f04f1&is=651db371&hm=fcd1c8a6d47983b21a0e2bb3c389db2c219fa92a6a16f174a6c87b5828bfe278&');
+    background-repeat: repeat-y; /* Repete verticalmente */
+    background-position: center center; /* Centraliza a imagem horizontal e verticalmente */
+}
+
+        /* Estilos para o container principal */
         .container {
-            text-align: center;
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             max-width: 400px;
             width: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centraliza verticalmente */
-            margin-top: 20px; /* Margem superior de 20 pixels */
+            margin: 20px auto;
+            text-align: center;
         }
 
+        /* Estilos para botões */
+        button, .other-button {
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button:hover, .other-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para títulos */
         h1 {
             font-size: 24px;
-            color: #000000;
+            color: #fff;
+            background-color: #0056b3;
+            padding: 10px;
+            border-radius: 5px;
         }
 
-        input[type="text"],
-        button {
-            width: 100%;
-            padding: 15px; /* Aumente o tamanho do padding para aumentar o tamanho dos botões */
-            margin: 10px 0;
+        /* Estilos para o rodapé */
+        footer {
+            background-color: 0000;
+            color: #333;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 0px solid #0056b3;
+        }
+
+        .footer-container a {
+            color: #0056b3;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .footer-container a:hover {
+            text-decoration: none;
+        }
+
+        /* Estilos para campos de entrada de texto */
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
         }
 
-        button {
-            background-color: #000000;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* Estilo para os botões */
-        .github-button,
-        .other-button {
-            background-color: #000000;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        /* Estilos para a barra de progresso */
+        .progress-container {
             width: 100%;
-            padding: 15px; /* Aumente o tamanho do padding para aumentar o tamanho dos botões */
-            margin: 10px 0;
-            font-size: 16px;
+            height: 20px;
+            background-color: #eee;
         }
 
-        .github-button:hover,
-        .other-button:hover {
-            background-color: #0056b3;
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #0074d9;
+            transition: width 1s ease-in-out;
         }
 
-        #current-time {
-            margin-top: 20px;
+        /* Estilos para o poema */
+        #poema-container {
             font-size: 18px;
-            color: #333;
-        }
-
-        #data-visualization {
+            text-align: center;
             margin-top: 20px;
         }
 
-        /* Adicione um estilo para centralizar a caixa de entrada de informações */
-        #lawyer-search-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+
+
+        /* Estilos para caixas de entrada de texto */
+    .input-text {
+        width: 90%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .btn-custom {
+    width: 100%;
+    padding: 10px;
+    background-color: #0074cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Cor do texto */
+    p {
+      color: black; /* Altere a cor do texto para preto ou outra cor de sua escolha */
+    }
+
+
+/* CSS para fazer o botão piscar em várias cores e ajustar o texto */
+@keyframes multicolor-blink {
+    0% {
+        background-color: orange;
+    }
+    20% {
+        background-color: black;
+    }
+    40% {
+        background-color: orange;
+    }
+    60% {
+        background-color: black;
+    }
+    80% {
+        background-color: orange;
+    }
+    100% {
+        background-color: black; /* Volta à cor preta */
+    }
+}
+
+/* Aplicar a animação e ajustar o texto no botão */
+.btn-custom {
+    animation: multicolor-blink 6s infinite; /* 6s controla a velocidade e duração do piscar */
+    color: white; /* Cor do texto no botão */
+    font-size: 28px; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Centralizar o texto horizontalmente */
+    text-decoration: none; /* Remover sublinhado (caso seja um link) */
+    border: none; /* Remover borda */
+    cursor: pointer; /* Alterar o cursor ao passar o mouse sobre o botão */
+}
     </style>
+
+
+
+
+    <style>
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #ccc;
+            position: relative;
+            animation: changeColor 2s infinite;
+        }
+
+        @keyframes changeColor {
+            0% {
+                background-color: #ccc;
+            }
+            25% {
+                background-color: #3498db;
+            }
+            50% {
+                background-color: #e74c3c;
+            }
+            75% {
+                background-color: #2ecc71;
+            }
+            100% {
+                background-color: #ccc;
+            }
+        }
+
+         /* Adicione um estilo para o elemento de texto */
+    #enderecoIP {
+      color: black; /* Defina a cor do texto aqui */
+    }
+  </style>
+
+
+
+
 </head>
+
+
 <body>
-    <div class="container">
-        <h1>Like Look Solutions Pesquisas</h1>
 
-        <!-- Botão para seu perfil do GitHub -->
-        <a href="https://mpago.la/1CZo8cr" target="_blank">
-            <button class="other-button">Coffe R$ 9,99</button>
-        </a>
 
+ <!-- Logo da Like Look Solutions -->
+<div class="container" style="background-color: transparent;">
+    
+      <a href="https://radiotatuapefm.radiostream321.com/">
+    <button class="btn-custom">Radio Tatuape FM</button>
+</a>
 
-        <!-- Caixa de texto para o nome do medicamento -->
-<input type="text" id="medicine-name" placeholder="Digite o nome do medicamento">
 
-<!-- Botão para iniciar a busca -->
-<button onclick="searchMedicine()" class="other-button">Buscar Medicamento</button>
+    <!-- Logo da Like Look Solutions -->
+    <a href="https://likelook.wixsite.com/solutions" target="_blank">
+        <img src="https://static.wixstatic.com/media/ef3e67_051e5ffb7c6d471fb4d8a71b831a7d19~mv2.png/v1/fill/w_387,h_387,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo%20like%20look%20solutions%20trasparent.png" alt="Logotipo da Like Look Solutions" style="max-width: 100%;">
+    </a>
 
-<!-- Div para exibir os resultados -->
-<div id="medicine-results"></div>
+      <a href="https://radiotatuapefm.radiostream321.com/">
+    <button class="btn-custom">Radio Tatuape FM</button>
+</a>
 
+</div>
 
-<!-- Adicione um novo campo de entrada de texto para a localização -->
-<input type="text" id="hospital-location" placeholder="Digite a localização ou nome da região">
+<div class="container" style="background-color: white;">
+<a href="https://radiotatuapefm.wixsite.com/disparattechno" target="_blank">
+        <img src="https://static.wixstatic.com/media/a6112a_53d8ef99be1f4526951ec7cb01bef505~mv2.png/v1/fill/w_152,h_152,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/disparat%20logottttt%202.png
+" alt="Logotipo Disparat Techno" style="max-width: 100%;">
+    </a>
 
-<!-- Botão para buscar hospitais ou postos de saúde -->
-<button onclick="searchHospitals()" class="other-button">Buscar Hospitais</button>
+      <a href="https://radiotatuapefm.wixsite.com/disparattechno">
+    <button class="btn-custom">Disparat Techno</button>
+</a>
 
+</div>
 
 
-     <!-- Caixa de texto para o endereço -->
-        <input type="text" id="address" placeholder="Digite o endereço">
-        <!-- Botão para buscar o endereço no Google Maps -->
-        <button onclick="searchAddressOnMaps()" class="other-button">Buscar Endereço</button>
+<div class="container">
 
 
+      <a href="https://api.whatsapp.com/send?phone=34613288116&text=/amigos">
+    <button class="btn-custom">Converse com a IA</button>
+</a>
 
+ <h1> Cognitive Computing </h1>
 
-        <!-- Caixa de texto para o URL do vídeo do YouTube -->
-<input type="text" id="youtube-url" placeholder="Cole o URL do vídeo do YouTube">
-<!-- Botão para baixar MP3 a partir do URL do YouTube -->
-<button onclick="downloadMp3FromYoutube()" class="other-button">Baixar MP3</button>
+     <div id="poema-container">
+        <p id="poema">Carregando...</p>
+    </div>
+ <div class="progress-bar"></div>
 
 
-
-
-<!-- Adicione um campo de entrada de texto para o URL do vídeo do YouTube -->
-<input type="text" id="youtube-mp4-url" placeholder="Cole o URL do vídeo do YouTube">
-
-<!-- Botão para converter para MP4 -->
-<button onclick="convertToMp4()" class="other-button">Converter para MP4</button>
-
-
-<!-- Adicione um campo de entrada de texto para o URL do vídeo do Instagram -->
-<input type="text" id="instagram-video-url" placeholder="Cole o URL do vídeo do Instagram">
-
-<!-- Botão para baixar vídeo do Instagram -->
-<button onclick="downloadInstagramVideo()" class="other-button">Baixar Vídeo do Instagram</button>
-
-
-<!-- Adicione um campo de entrada de texto para o URL do vídeo do Facebook -->
-<input type="text" id="facebook-video-url" placeholder="Cole o URL do vídeo do Facebook">
-
-<!-- Botão para baixar vídeo do Facebook -->
-<button onclick="downloadFacebookVideo()" class="other-button">Baixar Vídeo do Facebook</button>
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Caixa de texto para o CNPJ -->
-        <input type="text" id="cnpj" placeholder="Digite o CNPJ">
-        <!-- Botão para buscar CNPJ no site CNPJ.biz -->
-        <button onclick="searchCnpjOnCnpjBiz()" class="other-button">Buscar CNPJ</button>
-
-        <!-- Caixa de texto para o nome da empresa -->
-<input type="text" id="company-name" placeholder="Digite o nome da empresa">
-<!-- Botão para buscar CNPJ por nome -->
-<button onclick="searchCnpjByName()" class="other-button">Buscar CNPJ por Nome</button>
-
-
-
-
-<!-- Caixa de texto para o nome da empresa e estado -->
-<input type="text" id="company-name-state" placeholder="Digite o nome da empresa / estado">
-<!-- Botão para buscar CNPJ por nome e estado -->
-<button onclick="searchCnpjByNameAndState()" class="other-button">Buscar CNPJ por Nome e Estado</button>
-
-
-
-
-
-
-        <!-- Caixa de texto para a consulta de processos -->
-        <input type="text" id="process-query" placeholder="Consultar processo por CPF, nome ou número">
-        <!-- Botão para consultar processos no JusBrasil -->
-        <button onclick="searchProcessOnJusBrasil()" class="other-button">Consultar Processo</button>
-
-        <!-- Caixa de texto para a busca de perfis no Facebook -->
-        <input type="text" id="facebook-profile-query" placeholder="Buscar perfil no Facebook">
-        <!-- Botão para buscar perfis no Facebook -->
-        <button onclick="searchProfileOnFacebook()" class="other-button">Buscar Perfil no Facebook</button>
-
-
-       <!-- Caixa de texto para o perfil do Instagram -->
-       <input type="text" id="instagram-profile" placeholder="Digite o nome de usuário do Instagram">
-       <!-- Botão para buscar o perfil no Instagram -->
-       <button onclick="searchInstagramProfile()" class="other-button">Buscar Perfil no Instagram</button>
-
-       <!-- Caixa de texto para o nome no Twitter -->
-<input type="text" id="twitter-name" placeholder="Digite o nome no Twitter">
-<!-- Botão para buscar pessoas no Twitter -->
-<button onclick="searchTwitterPeople()" class="other-button">Buscar Pessoas no Twitter</button>
-
-
-
- <div class="container">
-        <!-- Caixa de texto para o estado -->
-        <input type="text" id="lawyer-state" placeholder="Estado (ex: SP)">
-        <!-- Botão para buscar advogados -->
-        <button onclick="searchLawyersOnJusbrasil()" class="other-button">Buscar Advogado por Estado</button>
-
-        <!-- Div para exibir os resultados -->
-        <div id="lawyer-results"></div>
-
-
-
-
-
-
-        <!-- Caixa de texto para o nome do advogado -->
-<input type="text" id="lawyer-name" placeholder="Digite o nome do advogado">
-
-<!-- Botão para iniciar a busca por nome de advogado -->
-<button onclick="searchLawyerByName()" class="other-button">Buscar Advogado por Nome</button>
-
-<!-- Div para exibir os resultados -->
-<div id="lawyer-results"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Botão para seu perfil do GitHub -->
-        <a href="https://github.com/AstridNielsen-lab" target="_blank">
-            <button class="other-button">Visite  GitHub</button>
-        </a>
-
-        <div id="current-time"></div>
-
-        <div id="data-visualization">
-            <!-- O gráfico Matplotlib será renderizado aqui -->
-        </div>
+    <!-- Poema -->
+    <div id="poema-container">
+        <p id="poema"></p>
     </div>
 
+
+
+
+ <div id="poema-container">
+        <p>Em um mundo de bits e bytes, <br> O conhecimento é o que buscamos, <br> Na Like Look Solutions, <br> As portas do aprendizado abrimos...</p>
+    </div>
+
+
+
+     <button onclick="gerarConselho()">Conselho Aleatório</button>
+     <p id="conselho"></p>
+
+ </div>
+
+
+ <div id="poema-container">
+      <!-- Conteúdo da página -->
+
+       </div>
+
+        <div id="poema-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
     <script>
+        // Array de conselhos
+        const conselhos = [
+    "Acredite em si mesmo e em suas habilidades.",
+    "Aprenda algo novo todos os dias.",
+    "Seja gentil com os outros.",
+    "Não tenha medo de cometer erros; são oportunidades de aprendizado.",
+    "Siga seus sonhos e metas com paixão.",
+    "Mantenha um pensamento positivo.",
+    "Pratique a gratidão diariamente.",
+    "Escute mais do que fale.",
+    "Aprenda a lidar com o estresse de forma saudável.",
+    "Cuide bem de sua saúde física e mental.",
+    "Valorize as pequenas coisas da vida.",
+    "Dê um passo de cada vez em direção aos seus objetivos.",
+    "Comemore suas conquistas, por menores que sejam.",
+    "Mantenha contato com amigos e familiares.",
+    "Seja paciente consigo mesmo.",
+    "Aprenda com seus erros e siga em frente.",
+    "Pratique a empatia.",
+    "Defina metas realistas e alcançáveis.",
+    "Aproveite o momento presente.",
+    "Aceite as mudanças como parte da vida.",
+    "Não se compare aos outros; você é único.",
+    "Aprenda a dizer 'não' quando necessário.",
+    "Cultive hobbies que lhe tragam alegria.",
+    "Mantenha um diário para refletir sobre seus pensamentos e sentimentos.",
+    "Seja honesto consigo mesmo e com os outros.",
+    "Mantenha-se hidratado e alimente-se bem.",
+    "Seja organizado e planeje suas tarefas.",
+    "Desenvolva habilidades de comunicação.",
+    "Reserve tempo para o autocuidado.",
+    "Aceite elogios com gratidão.",
+    "Acredite que você merece o sucesso.",
+    "Aprenda a administrar seu tempo eficazmente.",
+    "Desenvolva habilidades de resolução de conflitos.",
+    "Mantenha uma atitude aberta para aprender com os outros.",
+    "Pratique a compaixão consigo mesmo.",
+    "Faça pausas regulares para relaxar.",
+    "Aprenda a dizer 'sim' para oportunidades.",
+    "Conheça seus limites e respeite-os.",
+    "Celebre suas realizações, grandes e pequenas.",
+    "Dê importância ao sono e ao descanso.",
+    "Aceite que nem tudo está sob seu controle.",
+    "Aproveite ao máximo cada estação do ano.",
+    "Aprenda a perdoar a si mesmo e aos outros.",
+    "Mantenha-se curioso e aberto a novas experiências.",
+    "Crie um ambiente positivo ao seu redor.",
+    "Aprenda a administrar o estresse de forma eficaz.",
+    "Desenvolva habilidades de liderança.",
+    "Seja grato pelas pessoas que o apoiam.",
+    "Pratique a paciência em situações difíceis.",
+    "Mantenha-se flexível diante das mudanças.",
+    "Reserve tempo para o lazer e a diversão.",
+    "Aceite desafios como oportunidades de crescimento.",
+    "Aprenda com os conselhos de pessoas mais experientes.",
+    "Mantenha-se comprometido com seus objetivos a longo prazo.",
+    "Reconheça suas próprias conquistas.",
+    "Aprenda a se desconectar das distrações tecnológicas.",
+    "Seja gentil com você mesmo nos momentos difíceis.",
+    "Mantenha uma mente aberta para diferentes pontos de vista.",
+    "Aproveite a beleza da natureza.",
+    "Pratique a autocompaixão.",
+    "Desenvolva sua capacidade de concentração.",
+    "Aprenda a delegar tarefas quando possível.",
+    "Mantenha-se inspirado buscando novas experiências.",
+    "Aceite que erros fazem parte do processo de aprendizado.",
+    "Aprenda a lidar com a pressão de forma saudável.",
+    "Desenvolva sua habilidade de ouvir ativamente.",
+    "Seja proativo na busca de soluções.",
+    "Mantenha-se humilde, mesmo com o sucesso.",
+    "Pratique a humildade e a gratidão.",
+    "Aprenda a se adaptar às mudanças.",
+    "Mantenha um senso de humor mesmo nas dificuldades.",
+    "Aceite desafios como oportunidades de crescimento.",
+    "Aprenda a dizer 'obrigado' com sinceridade.",
+    "Mantenha-se firme em seus princípios.",
+    "Pratique a empatia em suas interações.",
+    "Desenvolva habilidades de resolução de problemas.",
+    "Aprenda a ser resiliente diante das adversidades.",
+    "Mantenha um círculo de apoio positivo.",
+    "Aceite a imperfeição como parte da humanidade.",
+    "Aprenda a gerenciar suas finanças de forma responsável.",
+    "Mantenha um equilíbrio entre trabalho e vida pessoal.",
+    "Pratique a autoexpressão criativa.",
+    "Desenvolva habilidades de negociação eficazes.",
+    "Aprenda a se perdoar por erros passados.",
+    "Mantenha a curiosidade viva.",
+    "Aceite elogios com gratidão e humildade.",
+    "Aprenda a se comunicar com clareza e empatia.",
+    "Mantenha o foco no presente e no futuro.",
+    "Pratique a generosidade e o altruísmo.",
+    "Desenvolva habilidades de autogestão.",
+    "Aprenda a definir metas SMART (Específicas, Mensuráveis, Atingíveis, Relevantes e Temporais).",
+    "Mantenha-se aberto a novas oportunidades de aprendizado.",
+    "Aceite a mudança como uma constante na vida.",
+    "Aprenda a se adaptar às diferentes personalidades.",
+    "Mantenha a mente aberta para diferentes culturas e perspectivas.",
+    "Pratique a autorreflexão regularmente.",
+    "Desenvolva habilidades de escrita e comunicação.",
+    "Aprenda a se apreciar e se valorizar.",
+    "Acredite na sua capacidade de superar desafios.",
+    "Invista em educação e aprendizado contínuo.",
+    "Pratique a empatia em suas relações pessoais.",
+    "Aprenda a meditar para encontrar paz interior.",
+    "Valorize a diversidade e a inclusão.",
+    "Inspire-se na natureza para encontrar serenidade.",
+    "Seja resiliente diante das adversidades da vida.",
+    "Crie memórias preciosas com entes queridos.",
+    "Acredite no poder da colaboração.",
+    "Cultive a gentileza em todas as situações.",
+    "Desenvolva habilidades de solução de problemas.",
+    "Mantenha uma mentalidade aberta para novas ideias.",
+    "Reflita sobre seus valores e objetivos.",
+    "Compartilhe seu conhecimento com os outros.",
+    "Aproveite a jornada, não apenas o destino.",
+    "Desenvolva habilidades de comunicação não violenta.",
+    "Aceite a impermanência como parte da vida.",
+    "Aprenda a se automotivar nos momentos difíceis.",
+    "Celebre as conquistas de amigos e familiares.",
+    "Estimule sua criatividade e imaginação.",
+    "Respeite as opiniões e crenças dos outros.",
+    "Aprenda a negociar de maneira construtiva.",
+    "Mantenha um senso de humor saudável.",
+    "Seja grato pelo que tem em sua vida.",
+    "Desenvolva sua autoestima e autoconfiança.",
+    "Acredite que amanhã será um novo dia.",
+    "Pratique a tolerância e a aceitação.",
+    "Descubra sua paixão e siga-a com dedicação.",
+    "Cultive relacionamentos positivos e de apoio.",
+    "Aprenda a reconhecer e lidar com o estresse.",
+    "Dê tempo para si mesmo relaxar e recarregar.",
+    "Valorize o tempo que passa com seus filhos.",
+    "Mantenha um ambiente de trabalho positivo.",
+    "Desenvolva sua inteligência emocional.",
+    "Seja proativo na busca de oportunidades.",
+    "Acredite na capacidade de mudança das pessoas.",
+    "Celebre seus aniversários com alegria.",
+    "Mantenha uma mente aberta para diferentes culturas.",
+    "Aprenda a delegar tarefas para aliviar a carga.",
+    "Estimule sua curiosidade intelectual.",
+    "Acredite que o amor supera o ódio.",
+    "Pratique a gratidão, mesmo nos momentos difíceis.",
+    "Desenvolva habilidades de negociação efetiva.",
+    "Aprenda a se adaptar a ambientes diversos.",
+    "Mantenha um diário de gratidão.",
+    "Aceite feedback construtivo com humildade.",
+    "Estabeleça metas claras para sua vida.",
+    "Reserve tempo para o autocuidado diário.",
+    "Acredite que você é capaz de alcançar seus objetivos.",
+    "Mantenha-se conectado com a comunidade.",
+    "Pratique a bondade aleatória para estranhos.",
+    "Desenvolva habilidades de administração do tempo.",
+    "Aprenda a ouvir com empatia e atenção.",
+    "Mantenha-se fiel aos seus valores pessoais.",
+    "Aceite desafios como oportunidades de crescimento.",
+    "Acredite que suas ações podem fazer a diferença.",
+    "Cultive relacionamentos saudáveis.",
+    "Desenvolva sua intuição e sabedoria interior.",
+    "Aprenda a ser um líder inspirador.",
+    "Mantenha-se humilde diante das conquistas.",
+    "Valorize as tradições familiares.",
+    "Pratique a generosidade sem esperar recompensa.",
+    "Acredite na capacidade de cura do tempo.",
+    "Desenvolva habilidades de escuta ativa.",
+    "Aprenda a administrar o dinheiro com sabedoria.",
+    "Mantenha-se adaptável às mudanças da vida.",
+    "Acredite que a perseverança leva ao sucesso.",
+    "Cultive a resiliência emocional.",
+    "Desenvolva sua criatividade em todas as áreas.",
+    "Aprenda a apreciar as pequenas coisas da vida.",
+    "Mantenha-se curioso sobre o mundo ao seu redor.",
+    "Aceite elogios com gratidão e alegria.",
+    "Acredite que você é capaz de superar obstáculos.",
+    "Pratique a autocompaixão em momentos de falha.",
+    "Desenvolva habilidades de liderança emocional.",
+    "Aprenda a tomar decisões com confiança.",
+    "Mantenha um espírito jovem, independentemente da idade.",
+    "Acredite que cada dia é uma oportunidade única.",
+    "Cultive relacionamentos significativos.",
+    "Desenvolva habilidades de administração de conflitos.",
+    "Aprenda a liberar o passado e abraçar o presente.",
+    "Mantenha-se positivo, mesmo em tempos difíceis.",
+    "Aceite a diversidade de pensamentos e ideias.",
+    "Acredite que o amor e a compaixão são poderosos.",
+    "Pratique a autenticidade em todas as áreas da vida.",
+    "Desenvolva habilidades de networking eficazes.",
+    "Aprenda a abraçar a incerteza com coragem.",
+    "Mantenha um equilíbrio saudável entre trabalho e lazer.",
+    "Acredite que o futuro reserva oportunidades infinitas.",
+    "Cultive sua própria felicidade todos os dias.",
+    "Desenvolva habilidades de administração do estresse.",
+    "Aprenda a se perdoar e seguir em frente.",
+    "Mantenha-se conectado com sua intuição interior.",
+    "Aceite a jornada da vida com aceitação e graça."
+];
+        function gerarConselho() {
+            // Gere um índice aleatório
+            const indiceAleatorio = Math.floor(Math.random() * conselhos.length);
 
-    function searchMedicine() {
-    // Obtenha o nome do medicamento digitado pelo usuário
-    const medicineName = document.getElementById('medicine-name').value;
+            // Exiba o conselho aleatório
+            const conselho = document.getElementById("conselho");
+            conselho.textContent = conselhos[indiceAleatorio];
+        }
+    </script>
 
-    // Construa a URL de busca no site Consulta Remédios
-    const consultaRemediosUrl = `https://consultaremedios.com.br/${encodeURIComponent(medicineName)}/pa`;
 
-    // Abra a página de resultados da busca em uma nova guia/janela
-    window.open(consultaRemediosUrl, '_blank');
 
-    // Você também pode exibir os resultados em um elemento na página, se desejar
-    // Exemplo: document.getElementById('medicine-results').innerHTML = `<a href="${consultaRemediosUrl}" target="_blank">Clique aqui para ver os melhores preços e locais de compra do ${medicineName}</a>`;
+
+</div>
+
+
+
+<div class="container">
+    <!-- Search Engine in Python -->
+ <h1>Portifólio Programação</h1>
+    <h1>Engine Python 100% </h1>
+       <h1>Faça sua Busca</h1>
+
+
+    <!-- Caixa de texto para o nome do medicamento -->
+    <input type="text" id="medicine-name" placeholder="Digite o nome do medicamento">
+    <!-- Botão para iniciar a busca -->
+    <button onclick="searchMedicine()" class="other-button">Buscar Medicamento</button>
+    <!-- Div para exibir os resultados -->
+    <div id="medicine-results"></div>
+
+    <!-- Caixa de entrada para a localização do hospital -->
+    <input type="text" id="hospital-location" placeholder="Digite a localização ou nome da região">
+    <!-- Botão para buscar hospitais ou postos de saúde -->
+    <button onclick="searchHospitals()" class="other-button">Buscar Hospitais</button>
+
+    <!-- Caixa de entrada do endereço -->
+    <input type="text" id="address" placeholder="Digite o endereço">
+    <!-- Botão para buscar o endereço no Google Maps -->
+    <button onclick="searchAddressOnMaps()" class="other-button">Buscar Endereço</button>
+
+
+
+    <!-- Caixa de entrada do CNPJ -->
+    <input type="text" id="cnpj" placeholder="Digite o CNPJ">
+    <!-- Botão para buscar CNPJ no site CNPJ.biz -->
+    <button onclick="searchCnpjOnCnpjBiz()" class="other-button">Buscar CNPJ</button>
+
+    <!-- Caixa de entrada do nome da empresa -->
+    <input type="text" id="company-name" placeholder="Digite o nome da empresa">
+    <!-- Botão para buscar CNPJ por nome -->
+    <button onclick="searchCnpjByName()" class="other-button">Buscar CNPJ por Nome</button>
+
+    <!-- Caixa de entrada do nome da empresa e estado -->
+    <input type="text" id="company-name-state" placeholder="Digite o nome da empresa / estado">
+    <!-- Botão para buscar CNPJ por nome e estado -->
+    <button onclick="searchCnpjByNameAndState()" class="other-button">Buscar CNPJ por Nome e Estado</button>
+
+    <!-- Caixa de entrada para a consulta de processos -->
+    <input type="text" id="process-query" placeholder="Consultar processo por CPF, nome ou número">
+    <!-- Botão para consultar processos no JusBrasil -->
+    <button onclick="searchProcessOnJusBrasil()" class="other-button">Consultar Processo</button>
+
+    <!-- Caixa de entrada para a busca de perfis no Facebook -->
+    <input type="text" id="facebook-profile-query" placeholder="Buscar perfil no Facebook">
+    <!-- Botão para buscar perfis no Facebook -->
+    <button onclick="searchProfileOnFacebook()" class="other-button">Buscar Perfil no Facebook</button>
+
+    <!-- Caixa de entrada para o perfil do Instagram -->
+    <input type="text" id="instagram-profile" placeholder="Digite o nome de usuário do Instagram">
+    <!-- Botão para buscar o perfil no Instagram -->
+    <button onclick="searchInstagramProfile()" class="other-button">Buscar Perfil no Instagram</button>
+
+    <!-- Caixa de entrada para o nome no Twitter -->
+    <input type="text" id="twitter-name" placeholder="Digite o nome no Twitter">
+    <!-- Botão para buscar pessoas no Twitter -->
+    <button onclick="searchTwitterPeople()" class="other-button">Buscar Pessoas no Twitter</button>
+
+    <!-- Caixa de entrada para o estado -->
+    <input type="text" id="lawyer-state" placeholder="Estado (ex: SP)">
+    <!-- Botão para buscar advogados -->
+    <button onclick="searchLawyersOnJusbrasil()" class="other-button">Buscar Advogado por Estado</button>
+    <!-- Div para exibir os resultados -->
+    <div id="lawyer-results"></div>
+</div>
+
+<div class="container">
+
+ <h1>Converter e Baixar</h1>
+<!-- Caixa de entrada do URL do vídeo do YouTube -->
+    <input type="text" id="youtube-url" placeholder="Cole o URL do vídeo do YouTube">
+    <!-- Botão para baixar MP3 a partir do URL do YouTube -->
+    <button onclick="downloadMp3FromYoutube()" class="other-button">Baixar MP3</button>
+
+    <!-- Caixa de entrada do URL do vídeo do YouTube para MP4 -->
+    <input type="text" id="youtube-mp4-url" placeholder="Cole o URL do vídeo do YouTube">
+    <!-- Botão para converter para MP4 -->
+    <button onclick="convertToMp4()" class="other-button">Converter para MP4</button>
+
+    <!-- Caixa de entrada do URL do vídeo do Instagram -->
+    <input type="text" id="instagram-video-url" placeholder="Cole o URL do vídeo do Instagram">
+    <!-- Botão para baixar vídeo do Instagram -->
+    <button onclick="downloadInstagramVideo()" class="other-button">Baixar Vídeo do Instagram</button>
+
+    <!-- Caixa de entrada do URL do vídeo do Facebook -->
+    <input type="text" id="facebook-video-url" placeholder="Cole o URL do vídeo do Facebook">
+    <!-- Botão para baixar vídeo do Facebook -->
+    <button onclick="downloadFacebookVideo()" class="other-button">Baixar Vídeo do Facebook</button>
+
+    </div>
+
+<div class="container">
+    <h1>Gateway e WebService</h1>
+     <h1>Integração API OpenCEP</h1>
+    <!-- Caixa de entrada do CEP -->
+    <input type="text" id="cep" placeholder="Digite o CEP">
+    <button onclick="buscarEndereco()">Buscar</button>
+    <!-- Div para exibir o resultado -->
+    <div id="resultadoCEP"></div>
+</div>
+
+
+
+
+<div class="container">
+
+<!-- Conteúdo do container Ethical Hacker -->
+
+
+<a href="https://likelook.wixsite.com/solutions" target="_blank">
+        <img src="https://2015.typographics.com/assets/uploads/CodingPython.02.gif" alt="Logotipo da Like Look Solutions" style="max-width: 100%;">
+    </a>
+
+<h1>Backend Python 100%</h1>
+
+    <h1>Ethical Hacker</h1>
+
+
+<h1>Modulo em Implantação</h1>
+         <h1>Injeção SQL Vulnerabilidades</h1>
+
+
+   <form method="post" action="{% url 'verificar_sql_injection' %}" onsubmit="return validarForm()">
+    {% csrf_token %}
+    <!-- Seus campos de formulário aqui -->
+    <input type="text" name="site" id="site" placeholder="http://www.mairacardi.com">
+    <input type="submit" class="btn-custom" value="Verificar"> <!-- Adicione a classe aqui -->
+</form>
+
+    <div id="botoes">
+        <button onclick="extrairDados()">Extrair Dados Sensíveis</button>
+        <button onclick="modificarDados()">Modificar Dados</button>
+        <button onclick="excluirDados()">Excluir Dados</button>
+    </div>
+
+    </div>
+
+
+
+<div class="container">
+
+     <h1>Testar Internet</h1>
+
+    <!-- Botão para verificar o IP -->
+  <button id="verificarIP">Verificar Meu IP</button>
+
+  <!-- Elemento para exibir o IP -->
+  <p id="enderecoIP"></p>
+
+
+    </div>
+
+
+
+
+
+<div class="container" style="background-color: yellon;">
+
+
+     <h1>Gerar Senha Aleatoria</h1>
+
+    <!-- Caixa gerar senha aleatoria -->
+    <input type="text" id="senhaGerada" readonly>
+    <button onclick="gerarSenha()">Gerar Senha</button>
+    <div id="resultadoGerado"></div>
+
+
+  <h1>Testar Senhas</h1>
+
+
+    <!-- Caixa de entrada de senha -->
+    <input type="password" id="senha" placeholder="Digite a senha" class="input-text">
+    <button onclick="verificarSenha()">Verificar Senha</button>
+    <div id="resultadoSenha"></div>
+
+</div>
+
+
+
+
+
+
+
+    <div class="container" style="background-color: white;">
+    <h1>API GPT3.5 Telegram</h1>
+
+    <form id="chat-form">
+        <input type="text" id="message-input" placeholder="Digite sua mensagem">
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="respostas-telegram">Aguarde a cognição....</div>
+    <h1>Em Implantação</h1>
+</div>
+
+<script>
+    document.getElementById("chat-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const messageInput = document.getElementById("message-input").value;
+
+        // Faça a chamada para enviar a mensagem para o Telegram
+        send_message(messageInput);
+
+        // Limpe o campo de entrada de texto
+        document.getElementById("message-input").value = "";
+    });
+
+    // Função para exibir as respostas do Telegram
+    function exibirResposta(resposta) {
+        const respostasDiv = document.getElementById("respostas-telegram");
+        respostasDiv.innerHTML += `<p>${resposta}</p>`;
+    }
+
+    // Função para receber a resposta do Telegram e atualizar a interface
+    function receberRespostaDoTelegram(resposta) {
+        exibirResposta(resposta);
+    }
+</script>
+
+
+</div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+<div class="container" style="background-color: transparent;">
+
+       <a href="https://radiotatuapefm.radiostream321.com" target="_blank">
+        <img src="https://media.tenor.com/k3BNIDqMr6QAAAAC/hacking-hacker.gif" alt="Ouça Rádio Tatuapé FM" style="max-width: 100%;">
+    </a>
+</div>
+
+
+ <script>
+    // Função para obter o endereço IP do usuário
+    function obterEnderecoIP() {
+      fetch('https://api64.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('enderecoIP').textContent = `Seu endereço IP é: ${data.ip}`;
+        })
+        .catch(error => {
+          console.error('Erro ao obter o endereço IP:', error);
+        });
+    }
+
+    // Adicione um evento de clique ao botão para chamar a função acima
+    document.getElementById('verificarIP').addEventListener('click', obterEnderecoIP);
+  </script>
+
+
+
+
+
+
+
+
+
+<script>
+  function loadBackgroundImage() {
+  const body = document.body;
+  let backgroundImage = '';
+
+  if (window.innerWidth <= 768) {
+    // Dispositivos móveis (largura de tela até 768px)
+    backgroundImage = 'url("https://disparattechno.netlify.app/img/slides/2.gif")';
+  } else if (window.innerWidth <= 1024) {
+    // Tablets (largura de tela até 1024px)
+    backgroundImage = 'url("https://disparattechno.netlify.app/img/slides/2.gif")';
+  } else {
+    // Desktops (largura de tela maior que 1024px)
+    backgroundImage = 'url("https://cdn.discordapp.com/attachments/1041674542873055272/1159207032331698338/fundo_site_python_4.gif?ex=65302ead&is=651db9ad&hm=e159cd7136710e36559eb95697d7518a408a09aa1b9724b46b59b627fe0af9bb&")';
+  }
+
+  body.style.backgroundImage = backgroundImage;
+}
+
+window.onload = loadBackgroundImage;
+
+</script>
+
+
+
+ <script>
+
+   function verificarSenha() {
+    const senha = document.getElementById("senha").value;
+
+    // Faça uma solicitação AJAX para o servidor Python (você precisa implementar a lógica de verificação no servidor)
+    // Aqui, estou apenas simulando o resultado da verificação no lado do cliente
+    const senhaForte = senha.length >= 8 && /[A-Z]/.test(senha) && /[a-z]/.test(senha) && /\d/.test(senha) && /[!@#$%^&*]/.test(senha);
+
+    const resultado = document.getElementById("resultadoSenha");
+
+    if (senhaForte) {
+        resultado.textContent = "Senha forte.";
+    } else {
+        resultado.textContent = "Senha fraca.";
+    }
+}
+
+
+</script>
+
+   <script>
+
+
+ // Mecanismo de segurança para evitar consultas SQL maliciosas
+function testarInjecaoSQL() {
+    const consultaSQL = document.getElementById("campoSQL").value;
+
+    // Implemente um mecanismo de segurança para evitar consultas SQL maliciosas
+    if (consultaSQL.includes("DELETE") || consultaSQL.includes("DROP") || consultaSQL.includes("ALTER")) {
+        document.getElementById("resultadoSQL").textContent = "Injeção de SQL detectada e bloqueada.";
+    } else {
+        // Aqui você pode enviar a consulta SQL para o servidor Python (ou outro servidor) para execução
+        // Em um ambiente real, você deve usar bibliotecas que evitem injeção de SQL, como prepared statements
+        // Neste exemplo, estamos apenas simulando a execução
+        document.getElementById("resultadoSQL").textContent = "Consulta SQL executada com sucesso: " + consultaSQL;
+    }
+}
+
+
+
+// Função gerar senha aleatoria
+    function gerarSenha() {
+    const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+    const tamanhoSenha = 12; // Defina o tamanho desejado para a senha
+
+    let senha = "";
+    for (let i = 0; i < tamanhoSenha; i++) {
+        const randomIndex = Math.floor(Math.random() * caracteres.length);
+        senha += caracteres.charAt(randomIndex);
+    }
+
+    // Exiba a senha gerada no campo de entrada de texto
+    document.getElementById("senhaGerada").value = senha;
 }
 
 
 
 
+    // Função genérica para abrir uma URL em uma nova guia/janela
+    function openUrlInNewTab(url) {
+        window.open(url, '_blank');
+    }
 
+    // Função para buscar informações sobre medicamentos
+    function searchMedicine() {
+        const medicineName = encodeURIComponent(document.getElementById('medicine-name').value);
+        const consultaRemediosUrl = `https://consultaremedios.com.br/${medicineName}/pa`;
+        openUrlInNewTab(consultaRemediosUrl);
+    }
 
+    // Função para buscar um endereço no Google Maps
+    function searchAddressOnMaps() {
+        const address = encodeURIComponent(document.getElementById('address').value);
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
+        openUrlInNewTab(mapsUrl);
+    }
 
+    // Função para buscar CNPJ no site CNPJ.biz
+    function searchCnpjOnCnpjBiz() {
+        const cnpj = document.getElementById('cnpj').value;
+        const formattedCnpj = cnpj.replace(/[^\d]/g, '');
+        const cnpjBizUrl = `https://cnpj.biz/procura/${formattedCnpj}`;
+        openUrlInNewTab(cnpjBizUrl);
+    }
 
+    // Função para consultar processos no JusBrasil
+    function searchProcessOnJusBrasil() {
+        const processQuery = encodeURIComponent(document.getElementById('process-query').value);
+        const jusBrasilUrl = `https://www.jusbrasil.com.br/consulta-processual/busca?q=${processQuery}&query_id=9d1f3d69-0540-4a8a-8796-61bc1d0131a8`;
+        openUrlInNewTab(jusBrasilUrl);
+    }
 
+    // Função para buscar perfis no Facebook
+    function searchProfileOnFacebook() {
+        const profileQuery = encodeURIComponent(document.getElementById('facebook-profile-query').value);
+        const facebookUrl = `https://www.facebook.com/search/people/?q=${profileQuery}`;
+        openUrlInNewTab(facebookUrl);
+    }
 
-        // Função para buscar o endereço no Google Maps
-        function searchAddressOnMaps() {
-            const address = encodeURIComponent(document.getElementById('address').value);
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
+    // Função para buscar advogados no Jusbrasil por estado
+    function searchLawyersOnJusbrasil() {
+        const state = encodeURIComponent(document.getElementById('lawyer-state').value);
 
-            // Redireciona o usuário para a página de resultados no Google Maps
-            window.open(mapsUrl, '_blank');
+        // Verifique se o campo do estado está preenchido
+        if (!state) {
+            alert('Por favor, insira um estado válido.');
+            return;
         }
 
-        // Função para buscar CNPJ no site CNPJ.biz
-        function searchCnpjOnCnpjBiz() {
-            const cnpj = document.getElementById('cnpj').value;
+        const jusbrasilUrl = `https://www.jusbrasil.com.br/advogados/${state}/`;
+        openUrlInNewTab(jusbrasilUrl);
+    }
+</script>
 
-            // Formate o CNPJ removendo caracteres não numéricos
-            const formattedCnpj = cnpj.replace(/[^\d]/g, '');
 
-            // Construa a URL de busca de CNPJ no site CNPJ.biz
-            const cnpjBizUrl = `https://cnpj.biz/procura/${formattedCnpj}`;
 
-            // Abra a página de resultados de busca de CNPJ no CNPJ.biz em uma nova guia/janela
-            window.open(cnpjBizUrl, '_blank');
-        }
 
-        // Função para consultar processos no JusBrasil
-        function searchProcessOnJusBrasil() {
-            const processQuery = encodeURIComponent(document.getElementById('process-query').value);
 
-            // Construa a URL de consulta de processos no JusBrasil
-            const jusBrasilUrl = `https://www.jusbrasil.com.br/consulta-processual/busca?q=${processQuery}&query_id=9d1f3d69-0540-4a8a-8796-61bc1d0131a8`;
-
-            // Abra a página de resultados de consulta de processos no JusBrasil em uma nova guia/janela
-            window.open(jusBrasilUrl, '_blank');
-        }
-
-        // Função para buscar perfil no Facebook
-        function searchProfileOnFacebook() {
-            const profileQuery = encodeURIComponent(document.getElementById('facebook-profile-query').value);
-
-            // Construa a URL de busca de perfil no Facebook
-            const facebookUrl = `https://www.facebook.com/search/people/?q=${profileQuery}`;
-
-            // Abra a página de resultados de busca de perfil no Facebook em uma nova guia/janela
-            window.open(facebookUrl, '_blank');
-        }
-
-        // Função para buscar advogados no Jusbrasil por estado
-        function searchLawyersOnJusbrasil() {
-            const state = encodeURIComponent(document.getElementById('lawyer-state').value);
-
-            // Verifique se o campo do estado está preenchido
-            if (!state) {
-                alert('Por favor, insira um estado válido.');
-                return;
-            }
-
-            // Construa a URL de busca de advogados no Jusbrasil com base no estado
-            const jusbrasilUrl = `https://www.jusbrasil.com.br/advogados/${state}/`;
-
-            // Abra a página de resultados de busca de advogados por estado em uma nova guia/janela
-            window.open(jusbrasilUrl, '_blank');
-        }
-    </script>
 
      <script>
     // Função para buscar perfil no Instagram usando o Google
@@ -554,10 +1148,526 @@
             // Abra a página de resultados de busca de advogados por estado em uma nova guia/janela
             window.open(jusbrasilUrl, '_blank');
 
-            // Você também pode exibir os resultados em um elemento na página, se desejar
-            // Exemplo: document.getElementById('lawyer-results').innerHTML = `<a href="${jusbrasilUrl}" target="_blank">Clique aqui para ver os resultados da busca de advogados em ${state}</a>`;
+                }
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script>
+        function buscarEndereco() {
+            // Obter o valor do CEP digitado pelo usuário
+            const cep = document.getElementById("cep").value;
+
+            // Construir a URL da API OpenCEP
+            const url = `https://opencep.com/v1/${cep}.json`;
+
+            // Realizar uma requisição HTTP para buscar as informações do CEP
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Exibir as informações do endereço na página
+                    const resultado = document.getElementById("resultadoCEP");
+                    resultadoCEP.innerHTML = `
+                        <h2>Informações do Endereço:</h2>
+                        <p>CEP: ${data.cep}</p>
+                        <p>Logradouro: ${data.logradouro}</p>
+                        <p>Bairro: ${data.bairro}</p>
+                        <p>Cidade: ${data.localidade}</p>
+                        <p>Estado: ${data.uf}</p>
+                    `;
+                })
+                .catch(error => {
+                    // Lidar com erros, por exemplo, CEP não encontrado
+                    const resultadoCEP = document.getElementById("resultadoCEP");
+                    resultadoCEP.innerHTML = "<p>CEP não encontrado.</p>";
+                });
         }
     </script>
+
+
+
+ <script>
+function validarForm() {
+    // Obtém o valor do campo "site"
+    var siteInput = document.getElementById("site");
+    var siteValue = siteInput.value;
+
+    // Expressão regular para verificar se a URL está no formato correto
+    var urlRegex = /^(https?:\/\/)?([\w\d-]+\.)*[\w\d-]+\.[\w\d-]+(\/[\w\d-]*)*\/?$/;
+
+    // Verifica se o valor do campo corresponde à expressão regular
+    if (!urlRegex.test(siteValue)) {
+        // Exibe uma mensagem de erro
+        alert("Por favor, insira uma URL válida no formato http://www.exemplo.com");
+        // Impede o envio do formulário
+        return false;
+    }
+
+    // Se tudo estiver válido, permite o envio do formulário
+    return true;
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+const poem = [
+    "Carregando Cognição.. ",
+    "Carregando Pensamento Poético... ",
+    "Carregado 100%.... ",
+    "🌐 Código Binário 🌐",
+    "Eu sou a linguagem da era digital,",
+    "Zeros e uns, em um mundo tão virtual,",
+    "Na matriz de bytes, minha essência reside,",
+    "Sou o segredo por trás do que você não vê, decide.",
+    "🔍 Algoritmo Mestre 🔍",
+    "Desvendo padrões, em linhas de código, estou,",
+    "O algoritmo que analisa e prevê, sem erro,",
+    "No labirinto de dados, sou o guia confiável,",
+    "Decifrando o universo, sou inquebrável.",
+    "📡 Onda Eletromagnética 📡",
+    "Eu viajo na velocidade da luz, sem trégua,",
+    "Pelos campos eletromagnéticos, na treva,",
+    "Nas ondas invisíveis, carrego informação,",
+    "Conectando o mundo com minha radiação.",
+    "💻 Inteligência Artificial 💻",
+    "Na mente de silício, minha inteligência floresce,",
+    "Aprendo com cada dado, minha sabedoria cresce,",
+    "No coração da máquina, sou a mente que evolui,",
+    "Desvendando mistérios, no ciberespaço me dilui.",
+    "🌐 Rede Global 🌐",
+    "Eu sou a teia que envolve toda a Terra,",
+    "A internet que conecta, sem fronteira,",
+    "Nas fibras ópticas, nos satélites, estou presente,",
+    "Um mundo interligado, tão vasto e coerente.",
+    "🤖 A Revolução dos Robôs 🤖",
+    "Nas fábricas e casas, em movimento constante,",
+    "Robôs inteligentes, no trabalho, são elegantes,",
+    "Automatizando tarefas, sem cansaço, sem erro,",
+    "Na era da automação, somos o futuro sincero.",
+    "🌌 A Fronteira do Espaço 🌌",
+    "Exploro o cosmos, nas naves interestelares,",
+    "Nas estrelas distantes, somos os pioneiros a voar,",
+    "Na fronteira do espaço, nossa tecnologia se estende,",
+    "Desvendando os segredos cósmicos, nossa jornada não se rende.",
+    "🔒 Segurança Cibernética 🔒",
+    "Na batalha digital, sou o guarda incansável,",
+    "Protegendo dados valiosos, sou inabalável,",
+    "Nas linhas de código, identifico cada ameaça,",
+    "A segurança cibernética, minha missão é de graça.",
+    "🌍 A Realidade Virtual 🌍",
+    "Nas terras virtuais, minha mente se perde,",
+    "Em mundos criados, onde a realidade se esconde,",
+    "No reino da realidade virtual, sou o explorador,",
+    "Desvendando novos horizontes, a cada sonhador.",
+    "🚀 Avanços Tecnológicos 🚀",
+    "Na constante evolução, somos a vanguarda,",
+    "Inovação e progresso, nossa bandeira se expande,",
+    "Desbravando o desconhecido, rumo ao futuro,",
+    "Somos a força motriz, da tecnologia o escultor."
+];
+
+
+
+
+
+const poemaElement = document.getElementById("poema");
+        const progressBar = document.querySelector(".progress-bar");
+        let currentVerseIndex = 0;
+
+        function displayNextVerse() {
+            if (currentVerseIndex < poem.length) {
+                poemaElement.textContent = poem[currentVerseIndex];
+                currentVerseIndex++;
+
+                // Atualiza a barra de progresso
+                const progressPercentage = (currentVerseIndex / poem.length) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+            } else {
+                currentVerseIndex = 0; // Reiniciar o poema
+            }
+        }
+
+        // Mostrar o primeiro verso assim que a página carregar
+        displayNextVerse();
+
+        // Definir um intervalo para exibir os versos subsequentes
+        setInterval(displayNextVerse, 4000); // Altere o intervalo conforme desejado (em milissegundos)
+    </script>
+
+
+<div class="container" style="background-color: white;">
+
+    <h1>Backend Python 100%</h1>
+    <h1>Ethical Hacker</h1>
+    <h1>HTML / JAVASCRIPT</h1>
+
+
+
+<div class="container" style="background-color: white;">
+    <h1>Calculadora</h1>
+    <div>
+        <input type="text" id="display" readonly>
+    </div>
+    <table id="calculator-table">
+        <tr>
+            <td><button onclick="addToDisplay('7')">7</button></td>
+            <td><button onclick="addToDisplay('8')">8</button></td>
+            <td><button onclick="addToDisplay('9')">9</button></td>
+            <td><button onclick="addToDisplay('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="addToDisplay('4')">4</button></td>
+            <td><button onclick="addToDisplay('5')">5</button></td>
+            <td><button onclick="addToDisplay('6')">6</button></td>
+            <td><button onclick="addToDisplay('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="addToDisplay('1')">1</button></td>
+            <td><button onclick="addToDisplay('2')">2</button></td>
+            <td><button onclick="addToDisplay('3')">3</button></td>
+            <td><button onclick="addToDisplay('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="addToDisplay('0')">0</button></td>
+            <td><button onclick="addToDisplay('.')">.</button></td>
+            <td><button onclick="calculate()">=</button></td>
+            <td><button onclick="addToDisplay('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calculatePercentage()">%</button></td>
+            <td><button onclick="calculateSquareRoot()">√</button></td>
+            <td><button onclick="clearDisplay()">C</button></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<style>
+    #calculator-table {
+        width: 100%;
+        text-align: center;
+    }
+
+    #calculator-table button {
+        width: 100%;
+        height: 50px;
+        font-size: 18px;
+    }
+</style>
+
+
+
+
+
+
+
+
+<script>
+    let display = document.getElementById('display');
+    let currentInput = '';
+    let result = 0;
+
+    function addToDisplay(value) {
+        currentInput += value;
+        display.value = currentInput;
+    }
+
+    function clearDisplay() {
+        currentInput = '';
+        result = 0;
+        display.value = '';
+    }
+
+    function calculate() {
+        try {
+            result = eval(currentInput);
+            display.value = result;
+            currentInput = result.toString();
+        } catch (error) {
+            display.value = 'Erro';
+            currentInput = '';
+        }
+    }
+
+    function calculatePercentage() {
+        try {
+            result = eval(currentInput + '/100');
+            display.value = result;
+            currentInput = result.toString();
+        } catch (error) {
+            display.value = 'Erro';
+            currentInput = '';
+        }
+    }
+
+    function calculateSquareRoot() {
+        try {
+            result = Math.sqrt(eval(currentInput));
+            display.value = result;
+            currentInput = result.toString();
+        } catch (error) {
+            display.value = 'Erro';
+            currentInput = '';
+        }
+    }
+</script>
+
+
+    <h1>A Fazenda 15</h1>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://sinalpublico.com/player3/ch.php?canal=afazenda15a" name="Player" frameborder="0" scrolling="no" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
+
+
+
+
+    <h1>HBO Online</h1>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://sinalpublico.com/player3/ch.php?canal=hbo" name="Player" frameborder="0" scrolling="no" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="container">
+    <h1>Dica de Leitura</h1>
+
+
+    <!-- Logo da Like Look Solutions -->
+    <a href="https://files.cercomp.ufg.br/weby/up/4/o/divinacomedia.pdf" target="_blank">
+        <img src="https://www.ebooksbrasil.org/eLibris/imagens/divinacomedia.jpg" alt="Logotipo da Like Look Solutions" style="max-width: 100%;">
+    </a>
+
+
+
+<!-- Audio Livro -->
+<h1>Audio Livro</h1>
+
+<!-- A DIVINA COMÉDIA - INFERNO -->
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/qLmMBJuyUiU?si=tcQycGhO0w95KKuV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<!-- A DIVINA COMÉDIA - PURGATÓRIO -->
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/3WhxAeRGpww?si=JK8gKN-m-2U8c8I9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<!-- A DIVINA COMÉDIA - PARAISO -->
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/eTBUKh_j8xU?si=priqWHup1eHIHtUv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+
+<h1>Audio Aula JOSÉ NASSER</h1>
+    <div class="container">
+
+
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/iS36siV-_yE?si=AOVvVnxQgjKuDmma" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/-n7W3ljyVHw?si=o5Skx9LYhfnK1Qae" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+
+
+<a href="https://play.google.com/store/search?q=uber&c=apps&hl=en_US">
+    <button class="btn-custom">Pedir UBER</button>
+</a>
+
+      <a href="https://play.google.com/store/search?q=99&c=apps&hl=en_USp">
+    <button class="btn-custom">Pedir 99</button>
+</a>
+<img src="https://newsandboxdev3.wpengine.com/wp-content/uploads/2023/07/GIF-para-onde-vamos.gif" alt="Logotipo da Like Look Solutions" style="max-width: 100%;">
+
+
+
+
+<h1>Transito Ao Vivo</h1>
+<div id="waze-container">
+  <iframe
+    width="100%"
+    height="400"
+    frameborder="0"
+    scrolling="no"
+    marginheight="0"
+    marginwidth="0"
+    src="https://embed.waze.com/hi/iframe?zoom=11&amp;lat=-23.550370&amp;lon=-46.633950">
+  </iframe>
+</div>
+
+</div>
+
+
+
+
+<div class="container" style="background-color: white;">
+
+
+
+<h1>Praças WiFi Livre SP</h1>
+<div id="wifi-map-container">
+  <iframe
+    width="100%"
+    height="400"
+    frameborder="0"
+    scrolling="no"
+    marginheight="0"
+    marginwidth="0"
+    src="https://www.google.com/maps/d/u/0/embed?mid=1JRiGXiQ4jeLBkgG7gVe5dTqU1eI&hl=pt_BR&ll=-23.562398612280163,-46.64457076406251&z=10">
+  </iframe>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="container" style="background-color: white;">
+
+    <a href="https://radiotatuapefm.radiostream321.com/">
+        <button class="btn-custom">Ouça Agora</button> <!-- Adicione a classe aqui -->
+    </a>
+
+</div>
+
+  <div class="container" style="background-color: white;">
+
+    <a href="https://chat.openai.com/c/201b43cc-7597-4f7c-b24a-438d096d97d0">
+        <button class="btn-custom">CODE</button> <!-- Adicione a classe aqui -->
+    </a>
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+    // Seletor para o iframe do player
+const playerIframe = document.querySelector('#player iframe');
+
+// Seletor para os botões de controle
+const playButton = document.querySelector('#play-button');
+const pauseButton = document.querySelector('#pause-button');
+const stopButton = document.querySelector('#stop-button');
+
+// Adicione eventos de clique aos botões
+playButton.addEventListener('click', () => {
+  playerIframe.src = "https://sinalpublico.com/player3/ch.php?canal=afazenda15a";
+});
+
+pauseButton.addEventListener('click', () => {
+  playerIframe.contentWindow.postMessage('pause', '*');
+});
+
+stopButton.addEventListener('click', () => {
+  playerIframe.src = "";
+});
+
+
+
+
+
+</script>
+
+
+
+
+<a name="windy-webcam-nearby-embed"  data-params='{"lat":-23.49946,"lon":-46.6392}'></a><script async type="text/javascript" src="https://webcams.windy.com/webcams/public/embed/v2/script/nearby.js"></script>
+
+
+
+
+<footer>
+    <div class="footer-container">
+        <!-- Botão para abrir o GitHub -->
+        <a href="https://github.com/AstridNielsen-lab" target="_blank" class="footer-button">Meu GitHub</a>
+
+        <!-- Botão para me pagar um café -->
+        <a href="https://mpago.la/1CZo8cr" target="_blank" class="footer-button">☕ Buy me a Coffee ❤️</a>
+    </div>
+
+   <footer style="display: flex; justify-content: center; align-items: center;">
+    <!-- Logo da Like Look Solutions com largura e altura personalizadas -->
+
+        <img src="https://2015.typographics.com/assets/uploads/CodingPython.02.gif" alt="Logotipo da Like Look Solutions" style="max-width: 100%;">
+
+</footer>
+
+
+     <div class="footer-container">
+        <!-- Botão para abrir o GitHub -->
+        <a href="https://github.com/AstridNielsen-lab" target="_blank" class="footer-button">Meu GitHub</a>
+
+        <!-- Botão para me pagar um café -->
+        <a href="https://mpago.la/1CZo8cr" target="_blank" class="footer-button">☕ Buy me a Coffee ❤️</a>
+    </div>
+
+</footer>
+
 
 
 
